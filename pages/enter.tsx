@@ -9,7 +9,7 @@ export default function Enter() {
   const onEmailClick = () => setMethod('email');
   const onPhoneClick = () => setMethod('phone');
   return (
-    <div className="mt-16">
+    <div className="mt-16 px-4">
       <h3 className="text-3xl font-bold text-center">Enter to Carrot</h3>
       <div className="mt-8">
         <div className="flex flex-col text-center">
@@ -39,21 +39,29 @@ export default function Enter() {
             </button>
           </div>
         </div>
-        <form>
-          <label>
+        <form className="flex flex-col mt-8">
+          <label className="text-sm font-medium text-gray-700">
             {method === 'email' ? 'Email address' : null}
             {method === 'phone' ? 'Phone number' : null}
           </label>
-          <div>
-            {method === 'email' ? <input type="email" required /> : null}
+          <div className="mt-1">
+            {method === 'email' ? (
+              <input
+                className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                type="email"
+                required
+              />
+            ) : null}
             {method === 'phone' ? (
-              <div>
-                <span>+82</span>
+              <div className="flex rounded-md shadow-sm">
+                <span className="flex items-center justify-center rounded-l-md px-3 border border-r-0 border-gray-300 bg-gray-50 text-gray-500 select-none">
+                  +82
+                </span>
                 <input type="number" required />
               </div>
             ) : null}
           </div>
-          <button>
+          <button className="mt-5 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:outline-none focus:transition">
             {method === 'email' ? 'Get login link' : null}
             {method === 'phone' ? 'Get one-time password' : null}
           </button>
