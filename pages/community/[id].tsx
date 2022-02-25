@@ -11,7 +11,7 @@ const CommunityPostDetail: NextPage = () => {
         <div>
           <p className="text-sm font-medium text-gray-700">Steve Jebs</p>
           <p className="text-xs font-medium text-gray-500 block">
-            View profile &rarr;
+            View profile;
           </p>
         </div>
       </div>
