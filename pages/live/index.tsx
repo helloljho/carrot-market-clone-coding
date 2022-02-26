@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-const Live: NextPage = () => {
+const Index: NextPage = () => {
   return (
     <div className="py-10  divide-y-2 space-y-4">
       {[1, 2, 3, 4, 5].map((_, index) => (
@@ -30,4 +30,4 @@ const Live: NextPage = () => {
   );
 };
 
-export default Live;
+export default Index;
