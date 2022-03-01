@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import Button from '../components/button';
-import Input from '../components/input';
-import { cls } from '../libs/client/utils';
 import { FieldErrors, useForm } from 'react-hook-form';
-import useMutation from '../libs/client/useMutation';
+import useMutation from '@libs/client/useMutation';
+import { cls } from '@libs/client/utils';
+import Input from '@components/input';
+import Button from '@components/button';
 
 interface EnterForm {
   email?: string;
