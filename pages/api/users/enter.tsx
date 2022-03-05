@@ -11,7 +11,7 @@ async function handler(
 ) {
   console.log(req.body);
   const { phone, email } = req.body;
-  const user = phone ? { phone: +phone } : email ? { email } : null;
+  const user = phone ? { phone } : email ? { email } : null;
   if (!user) {
     return res.status(400).json({ ok: false });
   }
@@ -33,12 +33,12 @@ async function handler(
     },
   });
   if (phone) {
-    const message = await twilioClient.messages.create({
-      messagingServiceSid: process.env.TWILIO_SERVICE_SID,
-      to: process.env.MY_PHONE!,
-      body: `Your login token is ${payload}`,
-    });
-    console.log(message);
+    // const message = await twilioClient.messages.create({
+    //   messagingServiceSid: process.env.TWILIO_SERVICE_SID,
+    //   to: process.env.MY_PHONE!,
+    //   body: `Your login token is ${payload}`,
+    // });
+    // console.log(message);
   }
   return res.status(200).json({
     ok: true,
