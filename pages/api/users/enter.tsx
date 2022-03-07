@@ -51,7 +51,7 @@ async function handler(
   //     html: `<strong>Your Token is ${payload}</strong>`,
   //   });
   //   console.log(email);
-  }
+  // }
   return res.status(200).json({
     ok: true,
   });
