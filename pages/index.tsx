@@ -4,18 +4,15 @@ import Item from '../components/item';
 import Layout from '../components/layout';
 import useUser from '@libs/client/useUser';
 import useSwr from 'swr';
+import { Product } from '@prisma/client';
 
-interface Product {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  description: string;
+interface FavProduct extends Product {
+  _count: { fav: number };
 }
 
 interface ProductResponse {
   ok: boolean;
-  products: Product[];
+  products: FavProduct[];
 }
 const Home: NextPage = () => {
   const { user, isLoading } = useUser();
@@ -30,7 +27,7 @@ const Home: NextPage = () => {
             title={product.name}
             price={product.price}
             comments={1}
-            hearts={1}
+            hearts={product._count.fav}
           />
         ))}
         <FloatingButton href="/products/upload">
