@@ -7,16 +7,9 @@ import { useForm } from 'react-hook-form';
 import useMutation from '@libs/client/useMutation';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Product } from '@prisma/client';
 
 interface UploadProductForm {
-  name: string;
-  price: number;
-  description: string;
-}
-
-interface Product {
-  id: number;
-  image: string;
   name: string;
   price: number;
   description: string;

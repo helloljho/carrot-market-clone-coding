@@ -12,13 +12,9 @@ export default function Forms() {
     formState: { errors },
   } = useForm<FormProps>();
 
-  const onValid = (data: FormProps) => {
-    console.log(data);
-  };
+  const onValid = (data: FormProps) => {};
 
-  const onInvalid = (errors: FieldErrors) => {
-    console.log(errors);
-  };
+  const onInvalid = (errors: FieldErrors) => {};
 
   return (
     <form onSubmit={handleSubmit(onValid, onInvalid)}>
