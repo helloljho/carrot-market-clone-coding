@@ -7,7 +7,10 @@ async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseType>
 ) {
-  const { id } = req.query;
+  const {
+    query: { id },
+    session: { user },
+  } = req;
 
   const post = await client.post.findUnique({
     where: {
@@ -42,10 +45,23 @@ async function handler(
       },
     },
   });
-  console.log(post);
+
+  const isWondering = Boolean(
+    await client.wondering.findFirst({
+      where: {
+        userId: user?.id,
+        postId: +id.toString(),
+      },
+      select: {
+        id: true,
+      },
+    })
+  );
+
   res.json({
     ok: true,
     post,
+    isWondering,
   });
 }
 
