@@ -39,8 +39,6 @@ async function handler(
     },
   });
 
-  console.log(createdAnswer);
-
   res.json({
     ok: true,
     createdAnswer,

@@ -28,9 +28,24 @@ async function handler(
     });
   }
   if (req.method === 'GET') {
-    const posts = await client.post.findMany({});
-    //todo include user
-    console.log(posts);
+    const posts = await client.post.findMany({
+      include: {
+        user: {
+          select: {
+            id: true,
+            name: true,
+            avatar: true,
+          },
+        },
+        _count: {
+          select: {
+            wondering: true,
+            answers: true,
+          },
+        },
+      },
+    });
+
     res.json({
       ok: true,
       posts,

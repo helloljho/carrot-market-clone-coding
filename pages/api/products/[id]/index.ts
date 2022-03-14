@@ -52,7 +52,7 @@ async function handler(
       },
     })
   );
-  console.log(isLiked);
+
   res.json({ ok: true, product, isLiked, relatedProducts });
 }
 
